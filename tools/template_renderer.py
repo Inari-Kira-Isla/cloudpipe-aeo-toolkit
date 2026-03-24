@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-template_renderer.py — 三策略模板渲染引擎
+template_renderer.py — 策略模板 + 行業 preset 渲染引擎
 讀取 HTML 模板 + DB 配置 → 替換 【填充位置】 → 注入 AEO/Chatbot/Tracker
 
 Templates:
   A (conversion)   — 奶茶金系，轉化導向
   B (storytelling)  — 深墨雜誌系，品牌敘事
   C (performance)   — 純白極簡系，效能導向
+  preset (restaurant) — 訂位優先，餐廳場景
 
 Usage:
   python3 template_renderer.py --slug inari-global-foods --output ~/Documents/inari-test/
@@ -17,7 +18,8 @@ import os, sys, re, json, sqlite3, html, argparse
 from datetime import date
 
 DB_PATH = os.path.expanduser("~/.openclaw/memory/client_sites.db")
-TEMPLATE_DIR = os.path.expanduser("~/.openclaw/workspace/templates")
+REPO_TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "templates"))
+LEGACY_TEMPLATE_DIR = os.path.expanduser("~/.openclaw/workspace/templates")
 TRACKER_BASE = "https://YOUR_TRACKER.workers.dev"
 CHAT_WORKER_BASE = "https://YOUR_CHAT_WORKER.workers.dev"
 GITHUB_PAGES_BASE = "https://inari-kira-isla.github.io"
@@ -28,10 +30,22 @@ TEMPLATE_MAP = {
     "conversion":   "template-a-conversion.html",
     "storytelling":  "template-b-storytelling.html",
     "performance":   "template-c-performance.html",
+    "restaurant":    "template-restaurant.html",
     # Legacy aliases
     "standard":      "template-c-performance.html",
     "premium":       "template-a-conversion.html",
 }
+
+TEMPLATE_LABELS = {
+    "conversion": "A 轉化",
+    "storytelling": "B 敘事",
+    "performance": "C 效能",
+    "restaurant": "Restaurant 預設",
+    "standard": "C 效能",
+    "premium": "A 轉化",
+}
+
+TEMPLATE_CHOICES = ["conversion", "storytelling", "performance", "restaurant"]
 
 INDUSTRY_SCHEMA = {
     "restaurant": "Restaurant", "cafe": "CafeOrCoffeeShop",
@@ -55,9 +69,19 @@ def load_config(slug: str) -> dict:
 
 def load_template(variant: str) -> str:
     filename = TEMPLATE_MAP.get(variant, TEMPLATE_MAP["performance"])
-    path = os.path.join(TEMPLATE_DIR, filename)
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
+    candidate_paths = [
+        os.path.join(REPO_TEMPLATE_DIR, filename),
+        os.path.join(LEGACY_TEMPLATE_DIR, filename),
+    ]
+
+    for path in candidate_paths:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return f.read()
+
+    raise FileNotFoundError(
+        f"Template not found for variant '{variant}': {', '.join(candidate_paths)}"
+    )
 
 
 def _e(text) -> str:
@@ -262,16 +286,16 @@ def write_site(slug: str, output_dir: str):
     c = load_config(slug)
     variant = c.get("template_variant", "performance")
     print(f"\n📁 Site: {output_dir}")
-    print(f"🎨 Template: {variant} ({'A 轉化' if variant == 'conversion' else 'B 敘事' if variant == 'storytelling' else 'C 效能'})")
+    print(f"🎨 Template: {variant} ({TEMPLATE_LABELS.get(variant, variant)})")
     print(f"📊 {len(files)} files")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="三策略模板渲染引擎")
+    parser = argparse.ArgumentParser(description="策略模板 + 行業 preset 渲染引擎")
     parser.add_argument("--slug", required=True, help="Site slug")
     parser.add_argument("--output", help="Output directory")
     parser.add_argument("--preview", action="store_true", help="Print HTML to stdout")
-    parser.add_argument("--template", choices=["conversion", "storytelling", "performance"], help="Override template")
+    parser.add_argument("--template", choices=TEMPLATE_CHOICES, help="Override template")
     args = parser.parse_args()
 
     if args.template:
