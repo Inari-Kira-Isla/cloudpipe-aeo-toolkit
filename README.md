@@ -1,5 +1,9 @@
 # CloudPipe AEO Toolkit
 
+> ⚠️ **Frozen (2026-08-24).** This repo is no longer maintained. Active AEO work continues at
+> [cloudpipe-landing](https://github.com/Inari-Kira-Isla/cloudpipe-landing) and the
+> `aeo-demo-*` industry showcase repos. Issues here are closed; open threads elsewhere.
+
 > 🕸️ Open-source tools for building AI-optimized websites at scale. Built for the AI search era.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
