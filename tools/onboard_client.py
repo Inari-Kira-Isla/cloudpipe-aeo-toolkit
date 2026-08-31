@@ -7,6 +7,9 @@ Usage:
       --template conversion --description "描述" --phone "+853-1234-5678" \\
       --address "澳門XX路" --email "info@brand.com"
 
+  python3 onboard_client.py --name "餐廳名" --name-en "Restaurant" --industry restaurant \\
+      --template restaurant --description "餐廳描述" --phone "+853-1234-5678"
+
   python3 onboard_client.py --list          # 列出所有站點
   python3 onboard_client.py --rebuild SLUG  # 重建現有站點
 """
@@ -16,13 +19,15 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(__file__))
 
+from template_renderer import TEMPLATE_CHOICES, TEMPLATE_LABELS
+
 DB_PATH = os.path.expanduser("~/.openclaw/memory/client_sites.db")
 SITES_DIR = os.path.expanduser("~/Documents")
 GITHUB_ORG = "YOUR_GITHUB_ORG"
 
 INDUSTRY_DEFAULTS = {
     "cafe": {"schema_type": "CafeOrCoffeeShop", "accent": "#4a7c59", "template": "performance"},
-    "restaurant": {"schema_type": "Restaurant", "accent": "#c4553a", "template": "conversion"},
+    "restaurant": {"schema_type": "Restaurant", "accent": "#c4553a", "template": "restaurant"},
     "food_delivery": {"schema_type": "Store", "accent": "#8B7240", "template": "conversion"},
     "beauty": {"schema_type": "HealthAndBeautyBusiness", "accent": "#b8628f", "template": "storytelling"},
     "technology": {"schema_type": "Organization", "accent": "#3b82f6", "template": "storytelling"},
@@ -90,7 +95,8 @@ def build_site(slug: str):
     local_path = c.get("local_path") or os.path.join(SITES_DIR, slug)
 
     print(f"\n🏗️  Building site: {slug}")
-    print(f"   Template: {c.get('template_variant', 'performance')}")
+    variant = c.get("template_variant", "performance")
+    print(f"   Template: {variant} ({TEMPLATE_LABELS.get(variant, variant)})")
     print(f"   Output: {local_path}")
 
     files = render_site(slug)
@@ -184,7 +190,7 @@ def list_sites():
     print("─" * 110)
     for r in rows:
         tpl = r["template_variant"] or "?"
-        tpl_label = {"conversion": "A 轉化", "storytelling": "B 敘事", "performance": "C 效能"}.get(tpl, tpl)
+        tpl_label = TEMPLATE_LABELS.get(tpl, tpl)
         print(f"{r['slug']:<30} {r['business_name']:<20} {r['industry']:<15} {tpl_label:<14} {r['status']:<10} {r['plan_tier']}")
 
 
@@ -200,7 +206,7 @@ def main():
     parser.add_argument("--name-en", help="Brand name (English)")
     parser.add_argument("--slug", help="URL slug (auto-generated if omitted)")
     parser.add_argument("--industry", help="行業", choices=list(INDUSTRY_DEFAULTS.keys()))
-    parser.add_argument("--template", choices=["conversion", "storytelling", "performance"], help="模板策略")
+    parser.add_argument("--template", choices=TEMPLATE_CHOICES, help="模板策略 / preset")
     parser.add_argument("--description", help="品牌描述")
     parser.add_argument("--phone", help="電話")
     parser.add_argument("--email", help="Email")
@@ -260,7 +266,8 @@ def main():
     print(f"✅ Onboard complete!")
     print(f"   Site: {site_url}")
     print(f"   Local: {local_path}")
-    print(f"   Template: {args.template or INDUSTRY_DEFAULTS.get(args.industry, {}).get('template', 'performance')}")
+    final_template = args.template or INDUSTRY_DEFAULTS.get(args.industry, {}).get('template', 'performance')
+    print(f"   Template: {final_template} ({TEMPLATE_LABELS.get(final_template, final_template)})")
     print(f"   Chatbot: {'enabled' if args.chatbot else 'disabled'}")
     print(f"{'═' * 60}")
 

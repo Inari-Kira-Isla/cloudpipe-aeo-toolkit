@@ -28,15 +28,16 @@
 
 ## What's Included
 
-### 🎨 3 Strategy Templates
+### 🎨 3 Strategy Templates + 1 Industry Preset
 
-Production-ready HTML templates with full AEO layer built-in. Each targets a different business goal.
+Production-ready HTML templates with full AEO layer built-in. The toolkit includes 3 core strategy templates plus 1 industry preset for restaurants.
 
 | Template | Style | Best For | KPI |
 |----------|-------|----------|-----|
 | **A — Conversion** | Warm gold, trust-building | B2B, consultants, high-ticket | Click-through rate |
 | **B — Storytelling** | Dark editorial, magazine-style | Premium brands, creative studios | Read time, scroll depth |
 | **C — Performance** | Clean white, mobile-first | Local shops, retail, delivery | Mobile conversion, 5s contact |
+| **Preset — Restaurant** | Warm hospitality, reservation-first | Restaurants, dining rooms, reservation-led venues | Reservation calls |
 
 Every template includes:
 - Schema.org JSON-LD (`LocalBusiness` / `Organization` + `FAQPage`)
@@ -49,7 +50,7 @@ Every template includes:
 | Tool | Description |
 |------|-------------|
 | `site_builder.py` | Python builder — generates complete site from DB config |
-| `template_renderer.py` | 3-strategy template engine — renders A/B/C with brand data |
+| `template_renderer.py` | Strategy/preset template engine — renders A/B/C + `restaurant` with brand data |
 | `onboard_client.py` | One-command site creation CLI |
 | `site_quality_audit.py` | 12-indicator AEO quality scorer (90-point scale) |
 | `batch_upgrade.py` | Bulk AEO injection engine — upgrade 27 sites in 5 minutes |
@@ -69,11 +70,11 @@ Cloudflare Worker that proxies MiniMax API for multi-brand AI customer service. 
 
 ```bash
 python3 onboard_client.py \
-  --name "My Cafe" \
-  --name-en "My Cafe" \
-  --industry cafe \
-  --template performance \
-  --description "Best coffee in town" \
+  --name "Casa Sabor" \
+  --name-en "Casa Sabor" \
+  --industry restaurant \
+  --template restaurant \
+  --description "Reservation-first dining experience in Macau" \
   --phone "+853-1234-5678" \
   --chatbot
 ```
@@ -161,6 +162,11 @@ PRs welcome! Especially:
 - Additional AEO checks
 - Translations (currently zh-TW, en)
 - Integration with other AI APIs
+
+Current template model:
+- 3 core strategy templates: `conversion`, `storytelling`, `performance`
+- 1 industry preset: `restaurant`
+- `template-selector.html` still documents only the 3 core strategies
 
 ## License
 

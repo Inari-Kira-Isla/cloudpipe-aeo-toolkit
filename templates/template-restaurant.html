@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【品牌名稱】 | 澳門餐廳訂位</title>
+
+  <meta property="og:title" content="【品牌名稱】 | 澳門餐廳訂位" />
+  <meta property="og:description" content="【完整業務描述，200字以上，AI 引用的主要來源】" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourbrand.cloudpipe.ai" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <meta name="description" content="【完整業務描述，200字以上，AI 引用的主要來源】" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "【品牌名稱】",
+        "description": "【完整業務描述，200字以上，AI 引用的主要來源】",
+        "url": "https://yourbrand.cloudpipe.ai",
+        "telephone": "+853-XXXX-XXXX",
+        "email": "contact@yourbrand.com",
+        "servesCuisine": ["【服務名稱一】", "【服務名稱二】", "【服務名稱三】", "【服務名稱四】"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "【街道地址】",
+          "addressLocality": "澳門",
+          "addressCountry": "MO"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "【品牌名稱】主打什麼餐點？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "店內主打【服務名稱一】、【服務名稱二】、【服務名稱三】與【服務名稱四】，可依用餐需求安排推薦。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "如何預約【品牌名稱】？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可直接致電 +853-XXXX-XXXX 完成訂位，也可先聯絡查詢當日座位與建議時段。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "【品牌名稱】位於哪裡？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "餐廳位於【街道地址】，歡迎先致電確認路線、營業安排與座位狀況。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #211914;
+      --paper: #f7f1e7;
+      --sand: #e7dbc8;
+      --warm: #bc673f;
+      --warm-dark: #8b4326;
+      --olive: #42523e;
+      --muted: #6f6257;
+      --line: rgba(33, 25, 20, 0.12);
+      --shadow: 0 18px 45px rgba(33, 25, 20, 0.12);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(188, 103, 63, 0.14), transparent 28%),
+        linear-gradient(180deg, #fbf6ef 0%, #f4ecdf 48%, #efe3d2 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 241, 231, 0.9);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-tagline {
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .reserve-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 54px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .menu-card,
+    .visit-card,
+    .faq-card,
+    .story-card {
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 54px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188, 103, 63, 0.22), rgba(188, 103, 63, 0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--warm-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      max-width: 11ch;
+    }
+
+    .hero-copy p {
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .btn-solid,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-solid {
+      background: var(--warm);
+      color: #fff;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .btn-solid:hover,
+    .btn-outline:hover,
+    .reserve-chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-point {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(33, 25, 20, 0.08);
+    }
+
+    .hero-point strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .hero-point span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .hero-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background:
+        linear-gradient(180deg, rgba(66, 82, 62, 0.94), rgba(33, 25, 20, 0.96)),
+        #2c241e;
+      color: #f7f1e7;
+    }
+
+    .hero-card .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d9c2ae;
+    }
+
+    .booking-main {
+      padding: 26px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .booking-main h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .booking-main p,
+    .booking-row span,
+    .mini-note {
+      color: rgba(247, 241, 231, 0.76);
+    }
+
+    .booking-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .booking-row:last-of-type {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .booking-row strong {
+      font-size: 1rem;
+    }
+
+    .booking-phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 18px;
+      background: #f7f1e7;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 24px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 0.98;
+    }
+
+    .section-copy {
+      max-width: 52ch;
+      color: var(--muted);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .menu-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 236, 223, 0.92));
+    }
+
+    .menu-card .menu-index {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: rgba(188, 103, 63, 0.12);
+      color: var(--warm-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .menu-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .menu-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: auto;
+    }
+
+    .menu-card span {
+      margin-top: 24px;
+      color: var(--warm-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .story-card,
+    .visit-card,
+    .faq-card {
+      padding: 30px;
+    }
+
+    .story-card p,
+    .visit-card p,
+    .faq-card p {
+      color: var(--muted);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .contact-stack {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .contact-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(33, 25, 20, 0.08);
+    }
+
+    .contact-item small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .contact-item strong,
+    .contact-item a {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .faq-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding: 34px 0 50px;
+    }
+
+    .footer-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 28px;
+      border-radius: 24px;
+      background: rgba(33, 25, 20, 0.96);
+      color: #f7f1e7;
+    }
+
+    .footer-card p,
+    .footer-card a {
+      color: rgba(247, 241, 231, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .visit-grid,
+      .story-grid,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .story-card,
+      .visit-card,
+      .faq-card {
+        padding: 26px;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .topnav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand-mark">
+        <a href="#top" class="brand-name">【品牌名稱】</a>
+        <div class="brand-tagline">【品牌口號】</div>
+      </div>
+      <nav class="topnav">
+        <a href="#menu">精選菜單</a>
+        <a href="#about">餐廳介紹</a>
+        <a href="#visit">用餐資訊</a>
+        <a href="#faq">FAQ</a>
+        <a class="reserve-chip" href="tel:853XXXXXXXX">立即訂位 · +853-XXXX-XXXX</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Restaurant Preset</div>
+          <h1>為每一次聚餐，保留剛剛好的座位。</h1>
+          <p>【完整業務描述，200字以上，AI 引用的主要來源】</p>
+          <div class="hero-actions">
+            <a class="btn-solid" href="tel:853XXXXXXXX">電話預約 +853-XXXX-XXXX</a>
+            <a class="btn-outline" href="#menu">查看精選菜單</a>
+          </div>
+          <div class="hero-points">
+            <div class="hero-point">
+              <strong>快速訂位</strong>
+              <span>以電話為主要 CTA，適合本地餐飲商戶立即接單。</span>
+            </div>
+            <div class="hero-point">
+              <strong>精選推薦</strong>
+              <span>用既有服務欄位映射菜單分類或招牌菜，無需新增資料欄位。</span>
+            </div>
+            <div class="hero-point">
+              <strong>位置清晰</strong>
+              <span>把地址、電話與聯絡方式集中展示，降低找店與預約摩擦。</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="label">Reservation</div>
+          <div class="booking-main">
+            <h2>今日用餐，先來電安排。</h2>
+            <p>適合午市、晚市、家庭聚餐與臨時訂位查詢。若需安排多人座位，建議先致電確認。</p>
+            <div class="booking-row">
+              <strong>電話訂位</strong>
+              <span>+853-XXXX-XXXX</span>
+            </div>
+            <div class="booking-row">
+              <strong>位置</strong>
+              <span>【街道地址】</span>
+            </div>
+            <div class="booking-row">
+              <strong>Email</strong>
+              <span>contact@yourbrand.com</span>
+            </div>
+            <a class="booking-phone" href="tel:853XXXXXXXX">立即致電預約</a>
+          </div>
+          <p class="mini-note">【品牌口號】</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Signature Menu</div>
+            <h2 class="section-title">四個最值得先點的餐桌亮點</h2>
+          </div>
+          <p class="section-copy">這一區使用現有的 `products_services` 前四項名稱來承接菜單分類、套餐名稱或招牌菜，讓 preset 能直接落在目前資料模型上。</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <div class="menu-index">01</div>
+            <h3>【服務名稱一】</h3>
+            <p>適合作為招牌主菜、套餐名稱或菜系分類。版位固定，方便在 onboarding 階段直接填入。</p>
+            <span>Chef Recommendation</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-index">02</div>
+            <h3>【服務名稱二】</h3>
+            <p>可用於代表熱賣單品、午市套餐、季節限定或適合多人分享的重點推薦。</p>
+            <span>Popular Choice</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-index">03</div>
+            <h3>【服務名稱三】</h3>
+            <p>作為第三個高辨識度選項，讓 AI 與使用者都能快速抓到餐廳的主要供應方向。</p>
+            <span>Seasonal Pick</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-index">04</div>
+            <h3>【服務名稱四】</h3>
+            <p>補足完整的精選結構，可映射甜點、飲品、套餐、共享拼盤或另一種菜系亮點。</p>
+            <span>Table Favorite</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell story-grid">
+        <article class="story-card">
+          <div class="eyebrow">About The Restaurant</div>
+          <h2 class="section-title">品牌介紹</h2>
+          <p>【完整業務描述，200字以上，AI 引用的主要來源】</p>
+        </article>
+        <article class="story-card">
+          <div class="eyebrow">Dining Promise</div>
+          <h2 class="section-title">從第一通電話開始，體驗就應該順暢</h2>
+          <p>這個 preset 延續現有 AEO 層與轉化邏輯，把餐飲場景最需要的三件事放在前面：訂位 CTA、精選菜單與到店資訊。對使用者來說，決策更快；對搜尋與 AI 引用來說，資訊也更集中。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="shell visit-grid">
+        <article class="visit-card">
+          <div class="eyebrow">Visit</div>
+          <h2 class="section-title">來店資訊</h2>
+          <p>把電話、地址與聯絡方式集中在同一個版位，讓找路、詢位與訂位都少一個步驟。</p>
+          <div class="contact-stack">
+            <div class="contact-item">
+              <small>Address</small>
+              <strong>【街道地址】</strong>
+            </div>
+            <div class="contact-item">
+              <small>Reservation Phone</small>
+              <a href="tel:853XXXXXXXX">+853-XXXX-XXXX</a>
+            </div>
+            <div class="contact-item">
+              <small>Email</small>
+              <a href="mailto:contact@yourbrand.com">contact@yourbrand.com</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-card" id="faq">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="section-title">常見問題</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>店內主打什麼？</h3>
+              <p>精選重點包含【服務名稱一】、【服務名稱二】、【服務名稱三】與【服務名稱四】，可以依聚餐人數與用餐情境做推薦。</p>
+            </div>
+            <div class="faq-item">
+              <h3>如何訂位最快？</h3>
+              <p>直接致電 <a href="tel:853XXXXXXXX">+853-XXXX-XXXX</a> 最快，可即時確認是否有位、建議到店時間與訂位安排。</p>
+            </div>
+            <div class="faq-item">
+              <h3>餐廳在哪裡？</h3>
+              <p>地址為【街道地址】。若首次來店，建議先電話查詢附近停車、路線與最佳到店時段。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-card">
+      <div>
+        <strong>【品牌名稱】</strong>
+        <p>AI 可視化技術支援：CloudPipe</p>
+      </div>
+      <div class="footer-links">
+        <a href="tel:853XXXXXXXX">+853-XXXX-XXXX</a>
+        <a href="mailto:contact@yourbrand.com">contact@yourbrand.com</a>
+        <a href="https://yourbrand.cloudpipe.ai/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
